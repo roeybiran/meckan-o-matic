@@ -14,8 +14,8 @@ javascript:(()=>(document.querySelector("#li-monthly-employee-report a").click()
 
 ## Caveats
 
-1. Personal vacations have to be inserted manually.
-2. National holidays etc. might not be skipped. If so, fix manually.
+1. Personal vacations (etc.) have to be inserted manually.
+2. National holidays (etc.) might not get skipped. If so, fix manually.
 
 ## TODO
 
