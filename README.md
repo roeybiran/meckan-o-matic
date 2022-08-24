@@ -16,3 +16,8 @@ javascript:(()=>(document.querySelector("#li-monthly-employee-report a").click()
 
 1. Personal vacations have to be inserted manually.
 2. National holidays etc. might not be skipped. If so, fix manually.
+
+## TODO
+
+1. Use `MutationObserver` instead of `setTimeout`.
+
