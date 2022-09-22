@@ -7,17 +7,11 @@
 3. Right click the bookmark's and edit its address: remove the current URL and paste the following JavaScript snippet instead, EXACTLY how it appears here:
 
 ```js
-javascript:(()=>(document.querySelector("#li-monthly-employee-report a").click(),setTimeout(()=>{document.querySelector(".export.free-reporting").click(),setTimeout(()=>{["checkIn","checkOut"].forEach(a=>document.querySelectorAll(`tr:not([class*=holiday]) input.${a}`).forEach(b=>b.value="checkIn"===a?"09:00":"18:00"))},1e3)},1e3)))()
+javascript:(()=>(document.querySelector("#li-monthly-employee-report a").click(),setTimeout(()=>{document.querySelector(".export.free-reporting").click(),setTimeout(()=>{document.getElementById("freeReporting-dialog").querySelectorAll("tr:not([class*=holiday])").forEach(e=>{e.querySelector(".specialDayDescription:empty")&&["checkIn","checkOut"].forEach(r=>{let l=e.querySelector(`input.${r}`);l&&0===l.value.length&&(l.value="checkIn"===r?"09:00":"18:00")})})},1e3)},1e3)))()
 ```
 
 4. In due time, **and while in** Meckano’s dashboard — click on the bookmark.
 
 ## Caveats
 
-1. Personal vacations (etc.) have to be inserted manually.
-2. National holidays (etc.) might not get skipped. If so, fix manually.
-
-## TODO
-
-1. Use `MutationObserver` instead of `setTimeout`.
-
+1. Personal vacations (etc.) need manual insertion.

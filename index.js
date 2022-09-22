@@ -6,13 +6,19 @@
 	setTimeout(() => {
 		document.querySelector(".export.free-reporting").click();
 		setTimeout(() => {
-			["checkIn", "checkOut"].forEach((slot) =>
-				document
-					.querySelectorAll(`tr:not([class*=holiday]) input.${slot}`)
-					.forEach(
-						(node) => (node.value = slot === "checkIn" ? "09:00" : "18:00")
-					)
-			);
+			document
+				.getElementById("freeReporting-dialog")
+				.querySelectorAll("tr:not([class*=holiday])")
+				.forEach((node) => {
+					if (node.querySelector(".specialDayDescription:empty")) {
+						["checkIn", "checkOut"].forEach((slot) => {
+							const target = node.querySelector(`input.${slot}`);
+							if (target && target.value.length === 0) {
+								target.value = slot === "checkIn" ? "09:00" : "18:00";
+							}
+						});
+					}
+				});
 		}, 1000);
 	}, 1000);
 })();
